@@ -1,0 +1,24 @@
+{
+  "name": "Administración Estratégica en Contextos Internacionales · Edición Digital 2026",
+  "short_name": "Adm. Estratégica 2026",
+  "description": "Libro digital interactivo de Administración Estratégica en Contextos Internacionales · UACH FEI",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "lang": "es-MX",
+  "background_color": "#F5F1E8",
+  "theme_color": "#0A1931",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "id": "./"
+}

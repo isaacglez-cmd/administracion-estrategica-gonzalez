@@ -1,0 +1,36 @@
+CONTROL DE CALIDAD · EDICIÓN DIGITAL 2026
+
+Revisión estática completada:
+- IDs únicos y destinos de navegación válidos.
+- 10 títulos de capítulo alineados con el índice original del libro.
+- 19 actividades/pausas con persistencia local.
+- 11 campos de notas/reflexión.
+- 4 preguntas de evaluación integrada, 3 opciones cada una.
+- pies de página repetidos eliminados de la extracción PDF.
+- glosario y referencias incorporados.
+- manifest PWA completo y service worker con caché versionado.
+- salud mental y liderazgo integrado en capítulos 1–10.
+
+Pruebas de navegador se ejecutan aparte sobre esta compilación.
+- Corrección QA: enlace al manifest y apple-touch-icon reinsertados en index.html para instalación PWA.
+
+PRUEBAS DE INTERFAZ (Chromium headless, contenido cargado localmente):
+- Sin errores JavaScript en escritorio: OK
+- Sin desbordamiento horizontal en escritorio: OK
+- Búsqueda interna: OK (VRIO devuelve coincidencias)
+- Modo oscuro: OK
+- Modo lectura: OK
+- Quiz: respuesta correcta y retroalimentación inmediata: OK
+- Vista móvil 390 px: sin desbordamiento horizontal: OK
+- Navegación inferior móvil visible: OK
+- Menú móvil abre y cierra al navegar: OK
+- Bloques de desarrollo académico desplegables: OK
+- Sin errores JavaScript en vista móvil: OK
+
+PWA/OFFLINE:
+- Manifest válido, enlazado desde index.html: OK
+- Iconos 192x192 y 512x512: OK
+- Service worker: sintaxis válida y caché versionado: OK
+- Todos los recursos núcleo del caché existen: OK
+- ZIP íntegro: OK
+- La prueba real de recarga sin conexión bajo HTTPS debe hacerse después del deploy en Netlify; el entorno de prueba bloquea navegación HTTP/localhost de Chromium y no permite simular un origen seguro desplegado.
