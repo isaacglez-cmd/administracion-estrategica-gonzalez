@@ -1,4 +1,4 @@
-const CACHE='ae-2026-vanguard-v3';
+const CACHE='ae-2026-vanguard-v4';
 const ASSETS=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./design-vanguardista.css'];
 const injectVanguard=async response=>{
   const type=response.headers.get('content-type')||'';
@@ -23,7 +23,10 @@ self.addEventListener('fetch',e=>{
     try{
       const network=await fetch(e.request);
       const response=e.request.mode==='navigate'?await injectVanguard(network.clone()):network.clone();
-      const cache=await caches.open(CACHE);await cache.put(e.request,response.clone());
+      if(network.ok){
+        const cache=await caches.open(CACHE);
+        await cache.put(e.request,response.clone());
+      }
       return response;
     }catch(err){
       const cached=await caches.match(e.request)||await caches.match('./index.html');
