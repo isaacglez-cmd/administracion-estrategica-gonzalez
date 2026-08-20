@@ -8,8 +8,6 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Administración Estratégica en Contextos Internacionales · Edición Digital 2026</title>
 <meta name="description" content="Libro digital interactivo de Administración Estratégica en Contextos Internacionales · UACH · Facultad de Economía Internacional · Edición 2026.">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="icon-192.png">
 <style>
 :root{
  --navy:#0A1931;--navy2:#16314F;--copper:#C8963E;--paper:#F5F1E8;--paper2:#FDFCF8;--ink:#192436;
@@ -459,7 +457,31 @@ body.dark .activity:has(input:checked){background:#163128}
  .strategy-visual .node{width:74px;height:74px;font-size:.64rem}
 }
 
+
+/* Cuaderno interactivo por capítulo · Edición 2026 */
+.chapter-workbook{margin:28px 0 8px;border:1px solid var(--line);border-radius:20px;background:var(--white);overflow:hidden;box-shadow:0 10px 30px rgba(10,25,49,.05)}
+.chapter-workbook-head{padding:18px 20px;background:linear-gradient(135deg,var(--navy),#163a61);color:white}
+.chapter-workbook-head .eyebrow{color:#d8b96f}.chapter-workbook-head h3{margin:4px 0 6px;font-family:Georgia,serif;font-size:1.45rem}.chapter-workbook-head p{margin:0;color:rgba(255,255,255,.82);font-size:.92rem}
+.workbook-body{padding:18px;display:grid;gap:14px}.exercise-card{border:1px solid var(--line);border-radius:16px;padding:15px;background:var(--paper2)}
+.exercise-card h4{margin:0 0 6px;color:var(--navy);font-size:1rem}.exercise-card p{margin:0 0 10px;color:var(--muted);font-size:.9rem}
+.exercise-card label.field-label{display:block;font-weight:700;color:var(--ink);font-size:.84rem;margin:10px 0 5px}
+.exercise-card textarea,.exercise-card input[type="text"]{width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:11px;background:var(--white);color:var(--ink);padding:11px 12px;font:inherit;line-height:1.45;resize:vertical;min-height:92px}
+.exercise-card input[type="text"]{min-height:auto;resize:none}.exercise-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.exercise-grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.exercise-grid .field-label{margin-top:0}
+.workbook-complete{display:flex;gap:10px;align-items:flex-start;padding:14px 15px;border-radius:14px;background:rgba(31,122,81,.08);border:1px solid rgba(31,122,81,.18);cursor:pointer}.workbook-complete input{margin-top:3px;accent-color:var(--green)}
+.autosave-note{font-size:.78rem;color:var(--muted);margin-top:8px}.autosave-note::before{content:'✓ ';color:var(--green);font-weight:800}
+body.dark .chapter-workbook,body.dark .exercise-card,body.dark .exercise-card textarea,body.dark .exercise-card input[type="text"]{background:#0F1F33}
+body.dark .exercise-card{border-color:rgba(255,255,255,.1)}
+@media(max-width:700px){.exercise-grid,.exercise-grid.three{grid-template-columns:1fr}.chapter-workbook{border-radius:16px}.workbook-body{padding:13px}}
+
 </style>
+
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#0A1931">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="AE 2026">
+<link rel="apple-touch-icon" href="./icon-192.png">
 </head>
 <body><div class="reading-top"><i id="readingTop"></i></div>
 <header class="top">
@@ -508,7 +530,7 @@ body.dark .activity:has(input:checked){background:#163128}
   <button onclick="go('cierre')"><span>13</span>Cierre</button>
  </div>
  <div class="progressbox">
-  <div class="eyebrow">Progreso de lectura</div>
+  <div class="eyebrow">Progreso general</div>
   <div class="progress"><i id="pf"></i></div>
   <div class="pm"><span id="pct">0%</span><span id="taskinfo">0 actividades</span></div>
  </div>
@@ -937,7 +959,15 @@ En equipo, clasifiquen tres decisiones recientes de una empresa conocida (real o
 según el nivel de estrategia al que corresponden: corporativo, de negocio o funcional.</div>
     </article></div>
     </details>
-    </section>
+    
+<div class="chapter-workbook" id="workbook-1"><div class="chapter-workbook-head"><div class="eyebrow">Cuaderno interactivo · Capítulo 1</div><h3>Del concepto al diagnóstico estratégico</h3><p>Responde aquí. El contenido se guarda automáticamente en este dispositivo.</p></div><div class="workbook-body">
+<div class="exercise-card"><h4>◆ Individual · Desafío estratégico</h4><p>Elige una empresa real de Chihuahua. Distingue el problema estratégico del problema operativo.</p><label class="field-label">Diagnóstico</label><textarea data-note="chap1_individual" placeholder="Empresa, desafío, componente estratégico y componente operativo…"></textarea></div>
+<div class="exercise-card"><h4>◆ Equipo · Niveles de estrategia</h4><p>Clasifica tres decisiones como corporativas, de negocio o funcionales y justifica.</p><textarea data-note="chap1_team" placeholder="1. Decisión — nivel — justificación
+2. …
+3. …"></textarea></div>
+<div class="exercise-card"><h4>◆ EAP · Writing</h4><p>Write about 90 words explaining why strategic management is critical for nearshoring companies in northern Mexico.</p><textarea data-note="chap1_eap" placeholder="Write your paragraph in English…"></textarea></div>
+<label class="workbook-complete"><input type="checkbox" data-task="chap1_workbook"><span><strong>Marcar actividades del Capítulo 1 como terminadas</strong><br><small>La respuesta escrita y esta marca forman parte del progreso general.</small></span></label><div class="autosave-note">Guardado automático local</div></div></div>
+</section>
 
 <section class="section" id="chap2">
  <div class="banner"><div class="cn">Capítulo 2</div><h2>Dirección Estratégica: Visión, Misión, Valores y Objetivos</h2><p>La dirección estratégica funciona como la brújula del libro: muestra hacia dónde quiere ir la organización, por qué existe, cómo decide y de qué forma convierte esa intención en metas verificables.</p></div>
@@ -1107,7 +1137,15 @@ Write a 100-word paragraph in English explaining why a clear vision statement ma
 companies participating in nearshoring supply chains.</div>
     </article></div>
     </details>
-    </section>
+    
+<div class="chapter-workbook" id="workbook-2"><div class="chapter-workbook-head"><div class="eyebrow">Cuaderno interactivo · Capítulo 2</div><h3>Visión, misión, valores y objetivos SMART</h3><p>Convierte la dirección estratégica en declaraciones y metas verificables.</p></div><div class="workbook-body">
+<div class="exercise-card"><h4>◆ Individual · Auditoría de dirección estratégica</h4><label class="field-label">Visión actual y evaluación</label><textarea data-note="chap2_vision" placeholder="¿Es aspiracional, clara y útil para decidir?"></textarea><label class="field-label">Misión actual y propuesta mejorada</label><textarea data-note="chap2_mission" placeholder="Cliente, valor ofrecido y diferenciación…"></textarea><label class="field-label">Valores centrales</label><textarea data-note="chap2_values" placeholder="Valores declarados y cómo deberían observarse en la conducta…"></textarea></div>
+<div class="exercise-card"><h4>◆ Objetivos SMART</h4><p>Redacta tres objetivos para una empresa exportadora.</p><textarea data-note="chap2_smart" placeholder="1. Específico + indicador + meta + fecha…
+2. …
+3. …"></textarea></div>
+<div class="exercise-card"><h4>◆ EAP · Writing</h4><p>Write approximately 100 words explaining why a clear vision statement matters in nearshoring supply chains.</p><textarea data-note="chap2_eap" placeholder="Write your paragraph in English…"></textarea></div>
+<label class="workbook-complete"><input type="checkbox" data-task="chap2_workbook"><span><strong>Marcar actividades del Capítulo 2 como terminadas</strong></span></label><div class="autosave-note">Guardado automático local</div></div></div>
+</section>
 
 <section class="section" id="chap3">
  <div class="banner"><div class="cn">Capítulo 3</div><h2>Análisis del Entorno Externo</h2><p>Este capítulo integra el sistema visual para PESTEL y Cinco Fuerzas, y permite leer el entorno como campo de oportunidades y amenazas para organizaciones localizadas en Chihuahua y vinculadas a cadenas internacionales.</p></div>
@@ -1282,7 +1320,19 @@ Write 100 words in English analyzing which of Porter&#x27;s Five Forces represen
 threat to small manufacturing suppliers in Chihuahua.</div>
     </article></div>
     </details>
-    </section>
+    
+<div class="chapter-workbook" id="workbook-3"><div class="chapter-workbook-head"><div class="eyebrow">Cuaderno interactivo · Capítulo 3</div><h3>PESTEL + Cinco Fuerzas</h3><p>Construye el análisis externo sin salir del capítulo.</p></div><div class="workbook-body">
+<div class="exercise-card"><h4>◆ PESTEL interactivo</h4><div class="exercise-grid three">
+<div><label class="field-label">Político</label><textarea data-note="chap3_political" placeholder="Políticas, T-MEC, regulación…"></textarea></div><div><label class="field-label">Económico</label><textarea data-note="chap3_economic" placeholder="Tipo de cambio, inflación, IED…"></textarea></div><div><label class="field-label">Social</label><textarea data-note="chap3_social" placeholder="Talento, demografía, consumo…"></textarea></div><div><label class="field-label">Tecnológico</label><textarea data-note="chap3_tech" placeholder="Automatización, IA, digitalización…"></textarea></div><div><label class="field-label">Ecológico</label><textarea data-note="chap3_environment" placeholder="Agua, energía, emisiones…"></textarea></div><div><label class="field-label">Legal</label><textarea data-note="chap3_legal" placeholder="Normas, laboral, comercio…"></textarea></div></div></div>
+<div class="exercise-card"><h4>◆ Cinco Fuerzas</h4><textarea data-note="chap3_fiveforces" placeholder="Rivalidad:
+Nuevos entrantes:
+Proveedores:
+Compradores:
+Sustitutos:
+Conclusión sobre atractivo de la industria:"></textarea></div>
+<div class="exercise-card"><h4>◆ Implicación estratégica</h4><textarea data-note="chap3_implication" placeholder="¿Qué oportunidad o amenaza debería priorizar la empresa y por qué?"></textarea></div>
+<label class="workbook-complete"><input type="checkbox" data-task="chap3_workbook"><span><strong>Marcar análisis externo como terminado</strong></span></label><div class="autosave-note">Guardado automático local</div></div></div>
+</section>
 
 <section class="section" id="chap4">
  <div class="banner"><div class="cn">Capítulo 4</div><h2>Análisis Interno y Ventaja Competitiva</h2><p>Cadena de Valor, VRIO y FODA/TOWS se articulan aquí como lenguaje gráfico uniforme para localizar fortalezas, debilidades y capacidades capaces de sostener ventajas en el tiempo.</p></div>
@@ -1449,7 +1499,17 @@ Write 90 words in English describing one core competency of a Chihuahua-based ex
 and why it is difficult for competitors to imitate.</div>
     </article></div>
     </details>
-    </section>
+    
+<div class="chapter-workbook" id="workbook-4"><div class="chapter-workbook-head"><div class="eyebrow">Cuaderno interactivo · Capítulo 4</div><h3>Cadena de Valor + VRIO + FODA/TOWS</h3><p>Relaciona recursos, actividades y ventaja competitiva.</p></div><div class="workbook-body">
+<div class="exercise-card"><h4>◆ Cadena de Valor</h4><textarea data-note="chap4_valuechain" placeholder="Actividades primarias, actividades de apoyo y dónde se crea o destruye valor…"></textarea></div>
+<div class="exercise-card"><h4>◆ VRIO</h4><div class="exercise-grid"><div><label class="field-label">Recurso/capacidad 1</label><textarea data-note="chap4_vrio1" placeholder="Valioso, raro, inimitable, organizado…"></textarea></div><div><label class="field-label">Recurso/capacidad 2</label><textarea data-note="chap4_vrio2" placeholder="Valioso, raro, inimitable, organizado…"></textarea></div></div></div>
+<div class="exercise-card"><h4>◆ FODA/TOWS</h4><textarea data-note="chap4_swot" placeholder="Fortalezas:
+Oportunidades:
+Debilidades:
+Amenazas:
+Estrategias FO / FA / DO / DA:"></textarea></div>
+<label class="workbook-complete"><input type="checkbox" data-task="chap4_workbook"><span><strong>Marcar análisis interno como terminado</strong></span></label><div class="autosave-note">Guardado automático local</div></div></div>
+</section>
 
 <section class="section" id="chap5">
  <div class="banner"><div class="cn">Capítulo 5</div><h2>Estrategias a Nivel de Negocio</h2><p>Este capítulo transforma las estrategias competitivas en una triada visual clara: liderazgo en costos, diferenciación y enfoque. Cada una responde a una forma distinta de competir y crear valor.</p></div>
@@ -1619,7 +1679,13 @@ Write  100  words  in  English  explaining  the  risk  of  being  &#x27;stuck  i
 manufacturing company competing in a nearshoring context.</div>
     </article></div>
     </details>
-    </section>
+    
+<div class="chapter-workbook" id="workbook-5"><div class="chapter-workbook-head"><div class="eyebrow">Cuaderno interactivo · Capítulo 5</div><h3>Estrategia a nivel de negocio</h3><p>Define cómo competir y cómo sostener la propuesta de valor.</p></div><div class="workbook-body">
+<div class="exercise-card"><h4>◆ Elección estratégica</h4><textarea data-note="chap5_choice" placeholder="¿Liderazgo en costos, diferenciación, enfoque o combinación? Justifica con evidencia del análisis previo."></textarea></div>
+<div class="exercise-card"><h4>◆ Propuesta de valor y trade-offs</h4><textarea data-note="chap5_valueprop" placeholder="Cliente objetivo, valor distintivo, actividades que lo sostienen y qué NO hará la empresa…"></textarea></div>
+<div class="exercise-card"><h4>◆ EAP · Competitive strategy</h4><textarea data-note="chap5_eap" placeholder="Explain in English how the chosen strategy can create competitive advantage…"></textarea></div>
+<label class="workbook-complete"><input type="checkbox" data-task="chap5_workbook"><span><strong>Marcar formulación competitiva como terminada</strong></span></label><div class="autosave-note">Guardado automático local</div></div></div>
+</section>
 
 <section class="section" id="chap6">
  <div class="banner"><div class="cn">Capítulo 6</div><h2>Estrategias Corporativas e Internacionales</h2><p>Aquí la escala cambia: la pregunta ya no es solo cómo competir, sino en qué negocios participar, cómo crecer y bajo qué modo entrar a nuevos mercados o territorios.</p></div>
@@ -1797,7 +1863,13 @@ Write 100 words in English discussing whether nearshoring represents a form of v
 integration, related diversification, or neither.</div>
     </article></div>
     </details>
-    </section>
+    
+<div class="chapter-workbook" id="workbook-6"><div class="chapter-workbook-head"><div class="eyebrow">Cuaderno interactivo · Capítulo 6</div><h3>Estrategias corporativas e internacionales</h3><p>Decide dónde competir, cómo crecer y cómo entrar a otros mercados.</p></div><div class="workbook-body">
+<div class="exercise-card"><h4>◆ Ruta corporativa</h4><textarea data-note="chap6_corporate" placeholder="Integración, diversificación, alianza, adquisición u otra ruta. ¿Qué sinergia busca?"></textarea></div>
+<div class="exercise-card"><h4>◆ Expansión internacional</h4><textarea data-note="chap6_entry" placeholder="Mercado objetivo, modo de entrada, nivel de control, inversión y riesgo…"></textarea></div>
+<div class="exercise-card"><h4>◆ Riesgos y respuesta</h4><textarea data-note="chap6_risk" placeholder="Riesgo cambiario, regulatorio, cultural, logístico o geopolítico y mecanismo de mitigación…"></textarea></div>
+<label class="workbook-complete"><input type="checkbox" data-task="chap6_workbook"><span><strong>Marcar estrategia corporativa/internacional como terminada</strong></span></label><div class="autosave-note">Guardado automático local</div></div></div>
+</section>
 
 <section class="section" id="chap7">
  <div class="banner"><div class="cn">Capítulo 7</div><h2>Implementación de la Estrategia</h2><p>La estrategia se vuelve creíble cuando la organización alinea estructura, cultura, liderazgo, talento, incentivos y procesos. Este capítulo convierte esa alineación en un sistema visual de ejecución.</p></div>
@@ -1965,7 +2037,13 @@ Write 100 words in English explaining why misaligned incentives are one of the m
 common barriers to strategy execution.</div>
     </article></div>
     </details>
-    </section>
+    
+<div class="chapter-workbook" id="workbook-7"><div class="chapter-workbook-head"><div class="eyebrow">Cuaderno interactivo · Capítulo 7</div><h3>Implementación de la estrategia</h3><p>Traduce la decisión estratégica en estructura, procesos, personas y cambio.</p></div><div class="workbook-body">
+<div class="exercise-card"><h4>◆ Brecha de implementación</h4><textarea data-note="chap7_gap" placeholder="¿Qué debe cambiar en estructura, procesos, cultura, capacidades o incentivos?"></textarea></div>
+<div class="exercise-card"><h4>◆ Plan de ejecución</h4><textarea data-note="chap7_plan" placeholder="Acción | responsable | recurso | fecha | indicador de avance…"></textarea></div>
+<div class="exercise-card"><h4>◆ Gestión del cambio</h4><textarea data-note="chap7_change" placeholder="Resistencias previsibles, comunicación, participación y acciones para sostener el cambio…"></textarea></div>
+<label class="workbook-complete"><input type="checkbox" data-task="chap7_workbook"><span><strong>Marcar plan de implementación como terminado</strong></span></label><div class="autosave-note">Guardado automático local</div></div></div>
+</section>
 
 <section class="section" id="chap8">
  <div class="banner"><div class="cn">Capítulo 8</div><h2>Evaluación, Control y Aprendizaje Estratégico</h2><p>Balanced Scorecard y KPI permiten medir sin reducir la estrategia a una sola cifra. El capítulo articula resultados financieros, clientes, procesos y aprendizaje.</p></div>
@@ -2112,7 +2190,16 @@ Write 100 words in English explaining why relying only on financial indicators c
 dangerous for long-term strategic control.</div>
     </article></div>
     </details>
-    </section>
+    
+<div class="chapter-workbook" id="workbook-8"><div class="chapter-workbook-head"><div class="eyebrow">Cuaderno interactivo · Capítulo 8</div><h3>Balanced Scorecard y control</h3><p>Convierte la estrategia en objetivos, indicadores, metas e iniciativas.</p></div><div class="workbook-body">
+<div class="exercise-card"><h4>◆ Balanced Scorecard</h4><div class="exercise-grid">
+<div><label class="field-label">Financiera</label><textarea data-note="chap8_fin" placeholder="Objetivo + KPI + meta…"></textarea></div><div><label class="field-label">Clientes</label><textarea data-note="chap8_customer" placeholder="Objetivo + KPI + meta…"></textarea></div><div><label class="field-label">Procesos internos</label><textarea data-note="chap8_process" placeholder="Objetivo + KPI + meta…"></textarea></div><div><label class="field-label">Aprendizaje y crecimiento</label><textarea data-note="chap8_learning" placeholder="Objetivo + KPI + meta…"></textarea></div></div></div>
+<div class="exercise-card"><h4>◆ Indicadores leading y lagging</h4><textarea data-note="chap8_indicators" placeholder="Indicadores adelantados:
+Indicadores rezagados:
+¿Cómo se relacionan causalmente?"></textarea></div>
+<div class="exercise-card"><h4>◆ Aprendizaje estratégico</h4><textarea data-note="chap8_learningloop" placeholder="¿Qué desviación obligaría a ajustar la estrategia y no solo la operación?"></textarea></div>
+<label class="workbook-complete"><input type="checkbox" data-task="chap8_workbook"><span><strong>Marcar tablero estratégico como terminado</strong></span></label><div class="autosave-note">Guardado automático local</div></div></div>
+</section>
 
 <section class="section" id="chap9">
  <div class="banner"><div class="cn">Capítulo 9</div><h2>Estrategia, Innovación y Transformación Digital</h2><p>La edición premium presenta este capítulo como portafolio de innovación e infraestructura de capacidades digitales: datos, procesos, talento y gobernanza.</p></div>
@@ -2262,7 +2349,14 @@ Write 100 words in English explaining why adopting new technology without strate
 alignment can fail to create competitive advantage.</div>
     </article></div>
     </details>
-    </section>
+    
+<div class="chapter-workbook" id="workbook-9"><div class="chapter-workbook-head"><div class="eyebrow">Cuaderno interactivo · Capítulo 9</div><h3>Innovación y transformación digital</h3><p>Prioriza innovación por valor estratégico, capacidad y riesgo.</p></div><div class="workbook-body">
+<div class="exercise-card"><h4>◆ Portafolio de innovación</h4><textarea data-note="chap9_portfolio" placeholder="Iniciativa 1 / horizonte / valor / riesgo
+Iniciativa 2…"></textarea></div>
+<div class="exercise-card"><h4>◆ Capacidad digital</h4><textarea data-note="chap9_digital" placeholder="Datos, procesos, talento, tecnología y gobierno que deben fortalecerse…"></textarea></div>
+<div class="exercise-card"><h4>◆ Decisión de inversión</h4><textarea data-note="chap9_decision" placeholder="¿Qué proyecto priorizarías, cuál pospondrías y con qué criterio estratégico?"></textarea></div>
+<label class="workbook-complete"><input type="checkbox" data-task="chap9_workbook"><span><strong>Marcar análisis de innovación como terminado</strong></span></label><div class="autosave-note">Guardado automático local</div></div></div>
+</section>
 
 <section class="section" id="chap10">
  <div class="banner"><div class="cn">Capítulo 10</div><h2>Integración y Casos de Cierre</h2><p>Este capítulo cierra el libro mostrando que las herramientas no son fragmentos aislados sino una secuencia completa: dirección, análisis, elección, implementación, evaluación e innovación.</p></div>
@@ -2382,7 +2476,13 @@ capítulos del semestre en un solo mapa conceptual integrador, y preséntalo en 
 grupo como cierre del curso.</div>
     </article></div>
     </details>
-    </section>
+    
+<div class="chapter-workbook" id="workbook-10"><div class="chapter-workbook-head"><div class="eyebrow">Cuaderno interactivo · Capítulo 10</div><h3>Integración del ciclo estratégico</h3><p>Cierra el curso conectando análisis, formulación, implementación y evaluación.</p></div><div class="workbook-body">
+<div class="exercise-card"><h4>◆ Mapa maestro</h4><textarea data-note="chap10_map" placeholder="Dirección → entorno externo → análisis interno → estrategia → implementación → BSC → aprendizaje…"></textarea></div>
+<div class="exercise-card"><h4>◆ Recomendación ejecutiva</h4><textarea data-note="chap10_recommendation" placeholder="En máximo 200 palabras: diagnóstico, decisión estratégica, ejecución y criterio de éxito."></textarea></div>
+<div class="exercise-card"><h4>◆ Reflexión profesional</h4><textarea data-note="chap10_reflection" placeholder="¿Qué herramienta cambió más tu forma de analizar una organización y cómo la aplicarías profesionalmente?"></textarea></div>
+<label class="workbook-complete"><input type="checkbox" data-task="chap10_workbook"><span><strong>Marcar integración del curso como terminada</strong></span></label><div class="autosave-note">Guardado automático local</div></div></div>
+</section>
 
 
 
@@ -2593,14 +2693,21 @@ const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isInt
 sections.forEach(id=>observer.observe(document.getElementById(id)));
 
 function updateProgress(){
- const visits=Object.keys(state.visited||{}).length;
- const tasks=Object.values(state.tasks||{}).filter(Boolean).length;
- const notes=Object.values(state.notes||{}).filter(v=>String(v).trim().length>10).length;
- const quiz=Object.keys(state.quiz||{}).length;
- const pct=Math.min(100, Math.round((visits/19)*35 + (tasks/19)*30 + (notes/1)*10 + (quiz/4)*25));
- document.getElementById('pf').style.width=pct+'%';
- document.getElementById('pct').textContent=pct+'%';
- document.getElementById('taskinfo').textContent=tasks+'/19 actividades';
+  const visits=Object.keys(state.visited||{}).length;
+  const visitTotal=sections.length;
+  const taskEls=[...document.querySelectorAll('[data-task]')];
+  const taskTotal=taskEls.length || 1;
+  const tasks=taskEls.filter(el=>!!state.tasks[el.dataset.task]).length;
+  const noteEls=[...document.querySelectorAll('[data-note]')];
+  const noteTotal=noteEls.length || 1;
+  const notes=noteEls.filter(el=>String(state.notes[el.dataset.note]||'').trim().length>=20).length;
+  const quizBoxes=[...document.querySelectorAll('.qbox')];
+  const quizTotal=quizBoxes.length || 1;
+  const quiz=Object.keys(state.quiz||{}).length;
+  const pct=Math.min(100,Math.round((visits/visitTotal)*25+(tasks/taskTotal)*35+(notes/noteTotal)*25+(quiz/quizTotal)*15));
+  document.getElementById('pf').style.width=pct+'%';
+  document.getElementById('pct').textContent=pct+'%';
+  document.getElementById('taskinfo').textContent=tasks+'/'+taskTotal+' actividades';
 }
 updateProgress();
 
