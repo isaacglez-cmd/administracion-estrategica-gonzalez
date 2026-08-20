@@ -1,0 +1,15 @@
+CIERRE DE CALIDAD · ADMINISTRACIÓN ESTRATÉGICA 2026
+
+Verificaciones y correcciones aplicadas:
+- Rama de cierre basada en main sin divergencia.
+- Contraste de títulos y etiquetas corregido en modo oscuro.
+- Estados de foco visibles para teclado.
+- Compatibilidad con prefers-reduced-motion.
+- Objetivos táctiles mínimos reforzados.
+- Campos del cuaderno interactivo reciben nombre accesible programático.
+- Service worker actualizado para precachear los activos de calidad.
+- El service worker solo cachea respuestas de red exitosas.
+- Se conserva el contenido académico, quizzes, ejercicios, progreso y estructura PWA existentes.
+
+Limitación de auditoría de esta sesión:
+- La automatización visual con navegador real no estuvo disponible en el entorno de ejecución; la revisión se realizó sobre los archivos efectivos de producción, el diff del repositorio y el estado del deploy de Netlify.

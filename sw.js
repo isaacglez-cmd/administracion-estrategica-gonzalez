@@ -1,11 +1,12 @@
-const CACHE='ae-2026-vanguard-v4';
-const ASSETS=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./design-vanguardista.css'];
-const injectVanguard=async response=>{
+const CACHE='ae-2026-quality-v5';
+const ASSETS=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./design-vanguardista.css','./quality-fixes.js'];
+const enhanceHtml=async response=>{
   const type=response.headers.get('content-type')||'';
   if(!type.includes('text/html')) return response;
-  const html=await response.text();
-  const linked=html.includes('design-vanguardista.css')?html:html.replace('</head>','<link rel="stylesheet" href="./design-vanguardista.css"></head>');
-  return new Response(linked,{status:response.status,statusText:response.statusText,headers:response.headers});
+  let html=await response.text();
+  if(!html.includes('design-vanguardista.css')) html=html.replace('</head>','<link rel="stylesheet" href="./design-vanguardista.css"></head>');
+  if(!html.includes('quality-fixes.js')) html=html.replace('</body>','<script src="./quality-fixes.js" defer></script></body>');
+  return new Response(html,{status:response.status,statusText:response.statusText,headers:response.headers});
 };
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)));self.skipWaiting();});
 self.addEventListener('activate',e=>{
@@ -22,7 +23,7 @@ self.addEventListener('fetch',e=>{
   e.respondWith((async()=>{
     try{
       const network=await fetch(e.request);
-      const response=e.request.mode==='navigate'?await injectVanguard(network.clone()):network.clone();
+      const response=e.request.mode==='navigate'?await enhanceHtml(network.clone()):network.clone();
       if(network.ok){
         const cache=await caches.open(CACHE);
         await cache.put(e.request,response.clone());
@@ -30,7 +31,7 @@ self.addEventListener('fetch',e=>{
       return response;
     }catch(err){
       const cached=await caches.match(e.request)||await caches.match('./index.html');
-      return e.request.mode==='navigate'&&cached?injectVanguard(cached):cached;
+      return e.request.mode==='navigate'&&cached?enhanceHtml(cached):cached;
     }
   })());
 });
