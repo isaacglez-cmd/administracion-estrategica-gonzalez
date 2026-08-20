@@ -1,5 +1,25 @@
-const CACHE='ae-2026-exercises-v1';
-const ASSETS=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
+const CACHE='ae-2026-vanguard-v2';
+const ASSETS=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./design-vanguardista.css'];
+const injectVanguard=async response=>{
+  const type=response.headers.get('content-type')||'';
+  if(!type.includes('text/html')) return response;
+  const html=await response.text();
+  const linked=html.includes('design-vanguardista.css')?html:html.replace('</head>','<link rel="stylesheet" href="./design-vanguardista.css"></head>');
+  return new Response(linked,{status:response.status,statusText:response.statusText,headers:response.headers});
+};
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)));self.skipWaiting();});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))));self.clients.claim();});
-self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(fetch(e.request).then(r=>{const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));return r;}).catch(()=>caches.match(e.request).then(r=>r||caches.match('./index.html'))));});
+self.addEventListener('fetch',e=>{
+  if(e.request.method!=='GET')return;
+  e.respondWith((async()=>{
+    try{
+      const network=await fetch(e.request);
+      const response=e.request.mode==='navigate'?await injectVanguard(network.clone()):network.clone();
+      const cache=await caches.open(CACHE);await cache.put(e.request,response.clone());
+      return response;
+    }catch(err){
+      const cached=await caches.match(e.request)||await caches.match('./index.html');
+      return e.request.mode==='navigate'&&cached?injectVanguard(cached):cached;
+    }
+  })());
+});
