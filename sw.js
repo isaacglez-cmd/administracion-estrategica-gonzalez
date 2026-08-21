@@ -1,15 +1,11 @@
-const CACHE='ae-2026-learning-v7';
-const ASSETS=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./design-vanguardista.css','./quality-fixes.js','./premium-experience.css','./premium-experience.js','./learning-evidence.css','./learning-evidence.js'];
+const CACHE='ae-2026-academic-v8';
+const ASSETS=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./design-vanguardista.css','./quality-fixes.js','./premium-experience.css','./premium-experience.js','./learning-evidence.css','./learning-evidence.js','./chapter-academics.css','./chapter-academics.js'];
 const enhanceHtml=async response=>{
   const type=response.headers.get('content-type')||'';
   if(!type.includes('text/html')) return response;
   let html=await response.text();
-  if(!html.includes('design-vanguardista.css')) html=html.replace('</head>','<link rel="stylesheet" href="./design-vanguardista.css"></head>');
-  if(!html.includes('premium-experience.css')) html=html.replace('</head>','<link rel="stylesheet" href="./premium-experience.css"></head>');
-  if(!html.includes('learning-evidence.css')) html=html.replace('</head>','<link rel="stylesheet" href="./learning-evidence.css"></head>');
-  if(!html.includes('quality-fixes.js')) html=html.replace('</body>','<script src="./quality-fixes.js" defer></script></body>');
-  if(!html.includes('premium-experience.js')) html=html.replace('</body>','<script src="./premium-experience.js" defer></script></body>');
-  if(!html.includes('learning-evidence.js')) html=html.replace('</body>','<script src="./learning-evidence.js" defer></script></body>');
+  for(const css of ['design-vanguardista.css','premium-experience.css','learning-evidence.css','chapter-academics.css']) if(!html.includes(css)) html=html.replace('</head>',`<link rel="stylesheet" href="./${css}"></head>`);
+  for(const js of ['quality-fixes.js','premium-experience.js','learning-evidence.js','chapter-academics.js']) if(!html.includes(js)) html=html.replace('</body>',`<script src="./${js}" defer></script></body>`);
   return new Response(html,{status:response.status,statusText:response.statusText,headers:response.headers});
 };
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)));self.skipWaiting();});
