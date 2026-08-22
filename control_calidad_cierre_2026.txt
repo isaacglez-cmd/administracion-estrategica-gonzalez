@@ -1,4 +1,7 @@
-CIERRE DE CALIDAD · ADMINISTRACIÓN ESTRATÉGICA 2026
+REGISTRO HISTÓRICO · CIERRE DE CALIDAD ANTERIOR
+ADMINISTRACIÓN ESTRATÉGICA 2026
+
+AVISO: este registro corresponde al estado anterior a las capas académicas integradas en los PR #4–#9. No certifica el HEAD actual ni debe utilizarse para declarar la edición como final. La validación vigente se documenta en QA_RECONCILIACION_6_10.md.
 
 Verificaciones y correcciones aplicadas:
 - Rama de cierre basada en main sin divergencia.
