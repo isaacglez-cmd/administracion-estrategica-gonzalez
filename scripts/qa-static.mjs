@@ -7,6 +7,9 @@ const html=read('index.html');
 const sw=read('sw.js');
 const architecture=read('ARQUITECTURA_ACADEMICA_2026.md');
 const evidence=read('learning-evidence.js');
+const chapterAcademics=read('chapter-academics.js');
+const advancedContent=read('advanced-academic-content.js');
+const coreContent=read('core-academic-content.js');
 
 const expectedAssets=[
   'manifest.webmanifest','icon-192.png','icon-512.png','design-vanguardista.css',
@@ -26,6 +29,18 @@ for(const asset of expectedAssets){
 for(const asset of directlyLinkedAssets){
   assert(html.includes(`./${asset}`),`index.html no enlaza ${asset}`);
 }
+
+const inlineStyleEnd=html.indexOf('</style>');
+assert(inlineStyleEnd!==-1,'index.html no contiene el bloque de estilos base');
+for(const asset of directlyLinkedAssets.filter(asset=>asset.endsWith('.css'))){
+  assert(html.indexOf(`./${asset}`)>inlineStyleEnd,`${asset} debe cargarse después de los estilos base`);
+}
+
+const scriptPosition=asset=>html.indexOf(`<script src="./${asset}" defer></script>`);
+for(const producer of ['chapter-academics.js','core-academic-content.js','advanced-academic-content.js','segunda-pasada-1-5.js','segunda-pasada-6-10.js']){
+  assert(scriptPosition(producer)<scriptPosition('learning-evidence.js'),`${producer} debe inicializarse antes de learning-evidence.js`);
+}
+assert(scriptPosition('learning-evidence.js')<scriptPosition('assessment-state.js'),'assessment-state.js debe restaurar evaluaciones después de learning-evidence.js');
 
 for(let chapter=1;chapter<=10;chapter++){
   const matches=html.match(new RegExp(`id=["']chap${chapter}["']`,'g'))||[];
@@ -58,6 +73,9 @@ for(const [number,title] of Object.entries(canonicalChapters)){
 
 assert(evidence.includes('[data-is-correct="true"]'),'La evidencia no cuenta respuestas correctas de segunda pasada');
 assert(evidence.includes('quiz*20'),'La fórmula no asigna puntuación por cada acierto');
+assert(chapterAcademics.includes("const KEY='ae-acad-2026-v2'")&&chapterAcademics.includes("const LEGACY_KEY='ae-acad-2026'"),'Las respuestas de arquitectura no usan un espacio versionado');
+assert(advancedContent.includes("const KEY='ae-advanced-2026-v2'")&&advancedContent.includes("const LEGACY_KEY='ae-advanced-2026'"),'Las respuestas avanzadas no usan un espacio versionado');
+assert(coreContent.includes("KEY='ae-core-content-2026-v2'")&&coreContent.includes("LEGACY_KEY='ae-core-content-2026'"),'Las respuestas centrales no usan un espacio versionado');
 assert(html.includes('id="searchInput" type="search" aria-label='),'El buscador no tiene nombre accesible explícito');
 for(let chapter=1;chapter<=10;chapter++){
   assert(html.includes(`data-note="mental${chapter}" aria-label=`),`Reflexión de bienestar ${chapter} sin nombre accesible`);

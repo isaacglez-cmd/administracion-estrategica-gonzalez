@@ -1,7 +1,17 @@
 (()=>{
-  const KEY='ae-advanced-2026';
+  const KEY='ae-advanced-2026-v2';
+  const LEGACY_KEY='ae-advanced-2026';
   let state;
-  try{state=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){state={}}
+  try{
+    const current=localStorage.getItem(KEY);
+    if(current!==null){
+      state=JSON.parse(current)||{};
+    }else{
+      const legacy=JSON.parse(localStorage.getItem(LEGACY_KEY))||{};
+      state=typeof legacy.c1==='string'?{c1:legacy.c1}:{};
+      localStorage.setItem(KEY,JSON.stringify(state));
+    }
+  }catch(e){state={}}
   const save=()=>localStorage.setItem(KEY,JSON.stringify(state));
   const data={
     1:{

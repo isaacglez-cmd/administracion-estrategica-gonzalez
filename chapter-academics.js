@@ -11,9 +11,20 @@
     ['Innovación y transformación digital','Evaluar portafolios de innovación, capacidades digitales, modelos de negocio, adopción, gobernanza y riesgos humanos o éticos.','Prioriza una inversión digital y explica su lógica de valor, capacidades requeridas, riesgo ético y criterio para detenerla o escalarla.'],
     ['Integración y casos de cierre','Conectar dirección, diagnóstico, elección, implementación, control, innovación y aprendizaje en una recomendación ejecutiva coherente.','Resuelve un caso integrador y presenta una recomendación con evidencia, trade-offs, responsables, indicadores y supuestos que deberán vigilarse.']
   ];
-  const KEY='ae-acad-2026';
+  const KEY='ae-acad-2026-v2';
+  const LEGACY_KEY='ae-acad-2026';
   let data;
-  try{data=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){data={}}
+  try{
+    const current=localStorage.getItem(KEY);
+    if(current!==null){
+      data=JSON.parse(current)||{};
+    }else{
+      const legacy=JSON.parse(localStorage.getItem(LEGACY_KEY))||{};
+      data={};
+      ['c1','c2','c3','c4','c5'].forEach(key=>{if(typeof legacy[key]==='string')data[key]=legacy[key]});
+      localStorage.setItem(KEY,JSON.stringify(data));
+    }
+  }catch(e){data={}}
   const save=()=>localStorage.setItem(KEY,JSON.stringify(data));
 
   function run(){
