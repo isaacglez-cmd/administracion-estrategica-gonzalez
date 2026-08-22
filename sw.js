@@ -1,13 +1,71 @@
-const CACHE='ae-2026-pass2-v11';
-const ASSETS=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./design-vanguardista.css','./quality-fixes.js','./premium-experience.css','./premium-experience.js','./learning-evidence.css','./learning-evidence.js','./chapter-academics.css','./chapter-academics.js','./core-academic-content.css','./core-academic-content.js','./advanced-academic-content.css','./advanced-academic-content.js','./segunda-pasada-1-5.css','./segunda-pasada-1-5.js'];
-const enhanceHtml=async response=>{
-  const type=response.headers.get('content-type')||'';
-  if(!type.includes('text/html')) return response;
-  let html=await response.text();
-  for(const css of ['design-vanguardista.css','premium-experience.css','learning-evidence.css','chapter-academics.css','core-academic-content.css','advanced-academic-content.css','segunda-pasada-1-5.css']) if(!html.includes(css)) html=html.replace('</head>',`<link rel="stylesheet" href="./${css}"></head>`);
-  for(const js of ['quality-fixes.js','premium-experience.js','learning-evidence.js','chapter-academics.js','core-academic-content.js','advanced-academic-content.js','segunda-pasada-1-5.js']) if(!html.includes(js)) html=html.replace('</body>',`<script src="./${js}" defer></script></body>`);
-  return new Response(html,{status:response.status,statusText:response.statusText,headers:response.headers});
-};
-self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)));self.skipWaiting();});
-self.addEventListener('activate',e=>{e.waitUntil((async()=>{const keys=await caches.keys();await Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)));await self.clients.claim();const clients=await self.clients.matchAll({type:'window',includeUncontrolled:true});await Promise.all(clients.map(client=>client.navigate(client.url)))})())});
-self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith((async()=>{try{const network=await fetch(e.request);const response=e.request.mode==='navigate'?await enhanceHtml(network.clone()):network.clone();if(network.ok){const cache=await caches.open(CACHE);await cache.put(e.request,response.clone())}return response}catch(err){const cached=await caches.match(e.request)||await caches.match('./index.html');return e.request.mode==='navigate'&&cached?enhanceHtml(cached):cached}})())});
+const CACHE='ae-2026-reconciled-v12';
+const ASSETS=[
+  './',
+  './index.html',
+  './manifest.webmanifest',
+  './icon-192.png',
+  './icon-512.png',
+  './design-vanguardista.css',
+  './quality-fixes.js',
+  './premium-experience.css',
+  './premium-experience.js',
+  './learning-evidence.css',
+  './learning-evidence.js',
+  './chapter-academics.css',
+  './chapter-academics.js',
+  './core-academic-content.css',
+  './core-academic-content.js',
+  './advanced-academic-content.css',
+  './advanced-academic-content.js',
+  './segunda-pasada-1-5.css',
+  './segunda-pasada-1-5.js',
+  './segunda-pasada-6-10.js',
+  './assessment-state.js'
+];
+
+self.addEventListener('install',event=>{
+  event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)));
+  self.skipWaiting();
+});
+
+self.addEventListener('activate',event=>{
+  event.waitUntil((async()=>{
+    const keys=await caches.keys();
+    await Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)));
+    await self.clients.claim();
+  })());
+});
+
+self.addEventListener('fetch',event=>{
+  const request=event.request;
+  if(request.method!=='GET')return;
+  const url=new URL(request.url);
+  if(url.origin!==self.location.origin)return;
+
+  if(request.mode==='navigate'){
+    event.respondWith((async()=>{
+      try{
+        const network=await fetch(request);
+        if(network.ok){
+          const cache=await caches.open(CACHE);
+          await cache.put('./index.html',network.clone());
+        }
+        return network;
+      }catch(error){
+        return caches.match('./index.html');
+      }
+    })());
+    return;
+  }
+
+  event.respondWith((async()=>{
+    const cached=await caches.match(request);
+    if(cached)return cached;
+    const network=await fetch(request);
+    if(network.ok){
+      const cache=await caches.open(CACHE);
+      await cache.put(request,network.clone());
+    }
+    return network;
+  })());
+});

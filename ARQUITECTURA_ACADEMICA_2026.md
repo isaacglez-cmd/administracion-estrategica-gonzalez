@@ -32,19 +32,19 @@ Diagnóstico interno: Cadena de Valor, recursos/capacidades, VRIO y síntesis FO
 Elección competitiva: liderazgo en costos, diferenciación, enfoque, trade-offs, coherencia de actividades y riesgo de quedar atrapado entre posiciones. Incluir comparación de alternativas y decisión argumentada.
 
 ### Capítulo 6
-Elección a nivel corporativo: alcance, integración, diversificación, alianzas y creación/destrucción de valor. Evaluar cuándo crecer agrega valor y cuándo solo agrega complejidad.
+Estrategias corporativas e internacionales: alcance, integración, diversificación, alianzas, selección de mercados y modos de entrada. Evaluar cuándo crecer crea valor, qué debe adaptarse o estandarizarse y cuándo la complejidad, la distancia o el riesgo destruyen valor.
 
 ### Capítulo 7
-Contexto internacional: presiones globales/locales, modos de entrada, distancia institucional/cultural, riesgo país y coordinación internacional. La actividad debe obligar a seleccionar mercado y modo de entrada con criterios explícitos.
+Implementación de la estrategia: traducir la elección estratégica en estructura, procesos, recursos, responsables, incentivos, cultura y gestión del cambio. La actividad debe diagnosticar una brecha de ejecución y producir un plan con responsables, secuencia, recursos y riesgos.
 
 ### Capítulo 8
-Implementación y Balanced Scorecard: convertir estrategia en objetivos, iniciativas, responsables, recursos, indicadores, metas y aprendizaje. Construir mapa estratégico con relaciones causales entre perspectivas y distinguir KPI de métrica decorativa.
+Evaluación, control y aprendizaje estratégico: convertir la estrategia en objetivos, indicadores, metas y ciclos de revisión. Usar Balanced Scorecard, indicadores leading y lagging, desviaciones y revisión de supuestos para distinguir entre corregir la ejecución y adaptar la estrategia.
 
 ### Capítulo 9
-Gobernanza, ética, liderazgo y personas: analizar incentivos, accountability, cultura, stakeholders, dilemas éticos y capacidad de ejecución. Integrar bienestar y salud mental como condición de sostenibilidad organizacional, no como apéndice.
+Estrategia, innovación y transformación digital: evaluar portafolios de innovación, capacidades digitales, modelos de negocio, adopción tecnológica y riesgos humanos o éticos. Integrar gobernanza, liderazgo, atención y bienestar como condiciones de una transformación sostenible, no como temas separados.
 
 ### Capítulo 10
-Control, aprendizaje y renovación estratégica: seguimiento, desviaciones, supuestos, escenarios, señales tempranas, aprendizaje y adaptación. Cerrar con un reto integrador donde el estudiante conecte diagnóstico, elección, implementación y control.
+Integración y casos de cierre: conectar dirección, diagnóstico externo e interno, elección competitiva y corporativa, implementación, control, innovación y aprendizaje. Cerrar con un caso integrador y una recomendación ejecutiva donde el estudiante haga explícitos evidencia, supuestos, trade-offs, responsables e indicadores.
 
 ## Criterio de aceptación
 Un capítulo solo pasa a COMPLETO cuando: (a) conserva el contenido fuente relevante; (b) cumple los diez bloques; (c) contiene al menos una actividad aplicada y una transferencia; (d) la evaluación explica por qué una respuesta es correcta/incorrecta; (e) produce evidencia guardable; y (f) se revisó visual y funcionalmente en móvil y escritorio.

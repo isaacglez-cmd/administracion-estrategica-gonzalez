@@ -1,0 +1,9 @@
+{
+  "name": "administracion-estrategica-gonzalez",
+  "version": "0.9.0",
+  "private": true,
+  "scripts": {
+    "check:syntax": "for file in *.js; do node --check \"$file\"; done",
+    "test": "npm run check:syntax && node scripts/qa-static.mjs"
+  }
+}

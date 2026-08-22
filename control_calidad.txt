@@ -1,5 +1,7 @@
 CONTROL DE CALIDAD · EDICIÓN DIGITAL 2026
 
+AVISO: registro correspondiente a una compilación anterior. Debe leerse junto con PRODUCTO_2026.md y QA_RECONCILIACION_6_10.md; no constituye aprobación de edición final.
+
 Revisión estática completada:
 - IDs únicos y destinos de navegación válidos.
 - 10 títulos de capítulo alineados con el índice original del libro.
