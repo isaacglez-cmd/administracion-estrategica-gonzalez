@@ -1,4 +1,4 @@
-const CACHE='ae-2026-reconciled-v12';
+const CACHE='ae-2026-final-independent-v13';
 const ASSETS=[
   './',
   './index.html',

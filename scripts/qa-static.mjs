@@ -81,6 +81,9 @@ for(let chapter=1;chapter<=10;chapter++){
   assert(html.includes(`data-note="mental${chapter}" aria-label=`),`Reflexión de bienestar ${chapter} sin nombre accesible`);
 }
 assert(html.includes('data-note="reflexion" aria-label='),'Reflexión final sin nombre accesible');
+assert(html.includes('Material académico independiente'),'La edición digital no declara su carácter independiente');
+assert(!/\bUACH\b|Universidad Autónoma de Chihuahua|Facultad de Economía Internacional|\bFEI\b/i.test(html),'La edición independiente conserva referencias institucionales');
+assert(!/\bUACH\b|\bFEI\b/i.test(read('manifest.webmanifest')),'El manifest conserva referencias institucionales');
 
 if(failures.length){
   console.error(`QA estático: ${failures.length} error(es)`);
