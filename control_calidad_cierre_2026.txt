@@ -3,6 +3,12 @@ ADMINISTRACIÓN ESTRATÉGICA 2026
 
 AVISO: este registro corresponde al estado anterior a las capas académicas integradas en los PR #4–#9. No certifica el HEAD actual ni debe utilizarse para declarar la edición como final. La validación vigente se documenta en QA_RECONCILIACION_6_10.md.
 
+ACTUALIZACIÓN DE CIERRE · 28 DE AGOSTO DE 2026
+- La edición independiente final fue revisada y fusionada mediante el PR #11.
+- Commit de main: 36651de933434041a4c2818e2c74891c1f22b565.
+- GitHub Actions QA estático: aprobado.
+- El despliegue Netlify 6a91e90ea8d5e25ab07fbeed fue omitido por créditos de cuenta excedidos.
+
 Verificaciones y correcciones aplicadas:
 - Rama de cierre basada en main sin divergencia.
 - Contraste de títulos y etiquetas corregido en modo oscuro.
