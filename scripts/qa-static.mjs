@@ -12,7 +12,8 @@ const advancedContent=read('advanced-academic-content.js');
 const coreContent=read('core-academic-content.js');
 
 const expectedAssets=[
-  'manifest.webmanifest','icon-192.png','icon-512.png','design-vanguardista.css',
+  'manifest.webmanifest','icon-192.png','icon-512.png','design-vanguardista.css','editorial-final.css',
+  'assets/territorio-estrategico-2026.webp',
   'quality-fixes.js','premium-experience.css','premium-experience.js',
   'learning-evidence.css','learning-evidence.js','chapter-academics.css',
   'chapter-academics.js','core-academic-content.css','core-academic-content.js',
@@ -55,6 +56,9 @@ const missingAnchors=[...new Set(anchors.filter(anchor=>!ids.includes(anchor)))]
 assert(missingAnchors.length===0,`Anclas sin destino: ${missingAnchors.join(', ')}`);
 
 const manifest=JSON.parse(read('manifest.webmanifest'));
+assert(html.includes('Material académico independiente'),'La edición digital no declara su carácter independiente');
+assert(!/\bUACH\b|Universidad Autónoma de Chihuahua|Facultad de Economía Internacional|\bFEI\b/i.test(html),'La edición independiente conserva referencias institucionales');
+assert(!/\bUACH\b|\bFEI\b/i.test(read('manifest.webmanifest')),'El manifest conserva referencias institucionales');
 assert(manifest.icons?.some(icon=>icon.sizes==='192x192'),'Manifest sin icono 192x192');
 assert(manifest.icons?.some(icon=>icon.sizes==='512x512'),'Manifest sin icono 512x512');
 assert(!sw.includes('enhanceHtml'),'El service worker no debe reescribir index.html');
@@ -81,9 +85,6 @@ for(let chapter=1;chapter<=10;chapter++){
   assert(html.includes(`data-note="mental${chapter}" aria-label=`),`Reflexión de bienestar ${chapter} sin nombre accesible`);
 }
 assert(html.includes('data-note="reflexion" aria-label='),'Reflexión final sin nombre accesible');
-assert(html.includes('Material académico independiente'),'La edición digital no declara su carácter independiente');
-assert(!/\bUACH\b|Universidad Autónoma de Chihuahua|Facultad de Economía Internacional|\bFEI\b/i.test(html),'La edición independiente conserva referencias institucionales');
-assert(!/\bUACH\b|\bFEI\b/i.test(read('manifest.webmanifest')),'El manifest conserva referencias institucionales');
 
 if(failures.length){
   console.error(`QA estático: ${failures.length} error(es)`);
