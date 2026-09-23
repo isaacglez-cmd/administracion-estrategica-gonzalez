@@ -1,4 +1,4 @@
-const CACHE='ae-2026-final-independent-v13';
+const CACHE='ae-2026-editorial-final-v14';
 const ASSETS=[
   './',
   './index.html',
@@ -6,6 +6,8 @@ const ASSETS=[
   './icon-192.png',
   './icon-512.png',
   './design-vanguardista.css',
+  './editorial-final.css',
+  './assets/territorio-estrategico-2026.webp',
   './quality-fixes.js',
   './premium-experience.css',
   './premium-experience.js',
